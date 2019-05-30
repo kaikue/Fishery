@@ -1,0 +1,16 @@
+[
+{
+  "modid": "fishery",
+  "name": "Fishery",
+  "description": "Resource generation, with fish!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["kaikue"],
+  "credits": "McJty for tutorials",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
