@@ -1,0 +1,9 @@
+itemGroup.fishery=Fishery
+
+fishery.general.tooltip=General configuration
+
+tile.fishery.blockexample.name=Block Name
+
+item.xtech.itemexample.name=Item Name
+
+tooltip.xtech.whatever=Some tooltip text

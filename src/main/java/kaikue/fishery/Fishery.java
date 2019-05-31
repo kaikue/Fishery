@@ -9,10 +9,18 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Fishery.MODID, dependencies = "required-after:forge@[14.23.5.2838,)", useMetadata = true)
+@Mod(modid = Fishery.MODID,
+	name = Fishery.MODNAME,
+	version = Fishery.VERSION,
+	dependencies = "required-after:forge@[14.23.5.2838,)",
+	useMetadata = true)
 public class Fishery {
-
+	
+	public static final String VERSION = "0.1.0";
+	public static final String BUILD_NUMBER = "@BUILD_NUMBER@";
 	public static final String MODID = "fishery";
+	public static final String MODNAME = "fishery";
+
 
 	public static final Logger logger = LogManager.getLogger(Fishery.MODID);
 
