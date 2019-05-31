@@ -5,3 +5,199 @@ A Minecraft mod about generating resources by breeding fish
 - Creative tab icon
 - JEI integration
 - Fix version number in build?
+
+## Brainstorming
+- Maintain nutrient levels in hatchery in order to get breeding to happen quickly
+	- sugar
+	- wheat
+	- netherwart
+	- fresh water?
+- find fish in pools in world
+- breeding:
+	- require one of each parent + material of potential child
+	- gives 2 children: each is random between parent types and crossbreed
+	- chance different per crossbreed type?
+- spawning:
+	- place 2 parent types in hatchery
+	- gives 2-4 child eggs: each is random between parent types
+		- better nutrients = more children
+		- offspring output in breeding slot = chance for crossbreed children (configurable, required by default)
+	- produce child eggs
+		- can be grown in incubator into adult fish
+			or processed in ~centrifuge~ into materials
+- incubating: requires fuel or RF, high light level (glowstone above), converts eggs -> adult fish
+- centrifuge: requires fuel or RF, converts eggs -> resources
+- hatchery: requires nutrient balance
+	- high crossbreed chance- nether wart
+	- lots of offspring- wheat
+	- fast reproduction cycle- sugar
+	- each increases corresponding quantity by 25%, breeding reduces it by 50% each cycle
+		- effect is ceiling'ed so 76% = full effect (since you can't insert a new item), but 75% = three-quarters effect
+- auto-hatchery multiblock- for lots of fish
+	- hatchery monitor (lets you see parents and nutrient levels)
+	- fish input valve (no GUI, input parent fish)
+	- egg output valve (no GUI, outputs eggs into chest/pipe)
+	- nutrient input valve (no GUI, input nutrients)
+	- mutation input valve (no GUI, input the desired crossbreed output- only gets used up by applicable breeding pair)
+	- hatchery glass (no GUI, just fills out space)
+	- 2 parents per block
+	- faster than manual hatchery
+	- higher nutrient caps?
+	- crafting requires a bunch of metal + fish-only resources
+	- parent fish are automatically paired based on insertion order
+		- could restrict to one type- easy but more space/materials if you want multiple types
+		- could pump in randomly- easy but risk losing fish
+		- could automate inserting in order- hard but get full benefits
+	- render as big tank with all parents swimming around
+- water filter?
+	- pump in water/dirty water and RF, pump out fresh water/regular water and slime/other product?
+	- fresh/regular water gives ??? benefit, dirty water gives ??? punishment?
+	
+- //auto-hatchery single block?
+	- simpler rendering- full block with static textures? (run some benchmarks)
+	- requires automated input/output- GUI only shows info
+	- normal hatchery wouldn't do automated I/O
+	- faster? higher nutrient caps?
+	- can take multiple parents of same type? different types?
+	- no breeding allowed?
+- Fish spawn in pools in world
+	- Oakfish spawn in aboveground lakes in forest biomes
+	- Stonefish spawn in underground lakes (or water < y=50)
+	- Snowfish spawn aboveground in frozen biomes
+	- Sandfish spawn aboveground in desert/mesa/savanna biomes
+	- Lavafish spawn in lava in nether		
+- Right click with fishing net (uses durability) to capture fish in world as item in inventory
+- Right click fish in world to place as fish entity (entity name = item name)	
+- ex: gold + lapis = diamond
+	- have 2 hatcheries producing gold and lapis eggs
+	- incubate one of each egg type into gold & lapis fish
+	- place in breeding hatchery with good nutrient balance and diamonds
+	- crossbreed happens at least twice: great, start breeding diamond fish
+	- crossbreed happens once: nice, repeat until you get a second one
+	- crossbreed does not happen: darn, repeat until you get some
+	- once you have 2 diamond eggs: mature them both in incubator, then start breeding (keep 2 each time for repeat breeding, process rest in centrifuge into diamond)
+
+## Content
+- [Iron]fish Eggs (dynamically colored)
+- [Iron]fish (dynamically colored)
+- Lava drop- furnace fuel (25 items), craft 4 around bucket to get lava bucket
+- Fish oil- centrifuging a mid-game fish or any adult fish?
+- Fishing net (durability)- crafted from sticks & string
+- Incubator (render fish eggs inside)
+	- GUI: eggs (wavy bubbly down arrow) fish, fuel slot + RF bar, alert "<!> Not enough light!"
+- Hatchery (render fish parents swimming around inside)
+	- GUI: two parent slots (wavy bubbly down arrow) four child slots, fuel slot + RF bar, nutrient slot & % indicator bars, mutation slot
+	- Hatchery multiblock and individual blocks
+- Processor? Centrifuge?- put in fish eggs to extract resources
+- Mimicfish- can't be bred on its own (different texture), but can be crafted with any other fish to yield 2x that fish
+	- bred from enderfish & magicfish
+	- "Infertile" in tooltip
+
+- Config options for each fish:
+	- name (lang file)
+	- enabled: true
+	- colors
+		- options:
+			- generate from item
+			- hardcode 3-4
+			- hardcode 2 (base, highlight) and lighten/darken for other colors (or just apply to pair of grayscale textures then combine them)
+	- item yield
+	- parents (optional, not needed for those that gen in world)
+
+## Resources
+- Mob drops
+	- Rottenfish- Rotten flesh: dirt + cactus green
+	- Bonefish- Bone: rotten flesh + stone
+	- Creeperfish- Gunpowder: bone + flint
+	- Cowfish- Leather: rotten flesh + bone
+	- Chickenfish- Feather: bone + 
+	- Slimyfish- Slime ball: rotten flesh + gunpowder
+	- Inkfish- Ink sac: bone + slime
+	- Guardfish- Prismarine shard: quartz + ink sac
+	- Spiderfish- String: gunpowder + ink sac?
+	- Enderfish- Ender pearl: slime ball + diamond
+	- Blazefish- Blaze rod: lava + bone
+	- Ghastlyfish- Ghast tear: blaze rod + ender pearl
+	- Witherfish- Wither skull: ghast tear + obsidian
+	- Shulkerfish- Shulker shell: chorus fruit + end stone
+	- //Music disc?: diamond + gunpowder
+	- //Nether star?: wither skull + soul sand
+- Resources
+	- Lavafish- Lava drop: found in world
+	- Clayfish- Clay: dirt + sand
+	- Snowfish- Snowball: found in world
+	- Coalfish- Coal: stone + lava
+	- Flintfish- Flint: stone + coal
+	- Ironfish- Iron ingot: stone + flint
+	- Lapisfish- Lapis: clay + iron
+	- Cactusfish- Cactus green: sand + oak log
+	- Cocoafish- Cocoa beans: jungle log + cactus green
+	- Circuitfish- Redstone: gunpowder + iron
+	- Goldenfish- Gold ingot: iron + redstone
+	- Diamondfish- Diamond: gold + lapis
+	- Emeraldfish- Emerald: diamond + cactus green
+	- Magicfish- Bottle of enchanting: emerald + glass
+	- Glowfish- Glowstone dust: gold + redstone
+	- Wartyfish- Nether wart: cactus green + netherrack
+	- Quartzfish- Nether quartz: diamond + netherrack
+	- Chorusfish- Chorus fruit: ender pearl + cactus green
+	- //Dragon breath?: ender pearl + bottle of enchanting 
+- Blocks
+	- Stonefish- Cobblestone: found in world
+	- Dirtfish- Dirt: stone + oak log
+	- Sandfish- Sand: found in world
+	- Glassfish- Glass: sand + coal
+	- Icefish- Ice: stone + snow
+	- Obsidianfish- Obsidian: lava + diamond
+	- Netherfish- Netherrack: lava + obsidian
+	- Soulfish- Soul sand: netherrack + sand
+	- Endedfish- End stone: obsidian + ender pearl
+	- Oakfish- Oak log: found in world
+	- Sprucefish- Spruce log: oak log + snow
+	- Birchfish- Birch log: spruce log + dirt
+	- Junglefish- Jungle log: birch log + cactus green
+	- Darkfish- Dark oak log: jungle log + dirt
+	- Acaciafish- Acacia log: dark oak log + sand
+- Mod ores (oredict)
+	- Copper: iron + redstone
+	- Tin: copper + iron
+	- Aluminum: tin + iron
+	- Lead: aluminum + lapis
+	- Silver: gold + lead
+	- Nickel: silver + diamond
+	- Uranium: iron + nether wart
+	- Platinum: diamond + nickel
+	- Ardite: netherrack + redstone
+	- Cobalt: netherrack + lapis
+	- Osmium: iron + lapis
+	- Iridium: platinum + diamond
+	- Draconium: ender pearl + wither skull
+- Alloys (oredict)
+	- Bronze: copper + tin
+	- Electrum: gold + silver
+	- Steel: iron + coal
+	- Invar: iron + nickel
+	- Signalum: copper + redstone
+	- Enderium: platinum + ender pearl
+	- Brass?
+	- Constantan?
+	- Manasteel?
+	- Manyullyn: cobalt + ardite
+	- Enderio alloys?
+- Other mod resources
+	- Sulfur: gunpowder + flint
+	- Saltpeter: sulfur + sand
+	- Basalz Rod: stone + blaze rod
+	- Blitz Rod: feather + blaze rod
+	- Blizz Rod: snowball + blaze rod
+	- Slag: stone + sand
+	- Rich Slag: slag + gold
+	- Cinnabar: rich slag + redstone
+	- Blue Slime: slime + lapis
+	- Purple Slime: blue slime + redstone
+	- Magma Slime: purple slime + lava
+	- Grains of Infinity: coal + quartz
+	- Thaumcraft- all 6 vis shards
+	- AE2 Certus Quartz: quartz + redstone
+	- AE2 Fluix Crystals: certus quartz + redstone
+	- Silicon: sand + flint
